@@ -1,4 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using RepositoryUniversity;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration.GetConnectionString("DB");
+
+builder.Services.AddDbContext<UniversityContext>(options => {
+
+    options.UseSqlServer(connectionString);
+});
 
 // Add services to the container.
 
