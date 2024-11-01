@@ -10,9 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IProfessorRepository, ProfessorRepository>();
 builder.Services.AddScoped<IProfessorService, ProfessorService>();
 builder.Services.AddScoped<IPangramService, PangramService>();
+builder.Services.AddScoped<IArticleService, ArticleService>();
 
 
-
+builder.Services.AddHttpClient();
 
 
 var connectionString = builder.Configuration.GetConnectionString("DB");
