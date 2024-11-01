@@ -1,7 +1,16 @@
 using Microsoft.EntityFrameworkCore;
 using RepositoryUniversity;
+using RepositoryUniversity.Interfaces;
+using UniversityService;
+using UniversityService.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.AddScoped<IProfessorRepository, ProfessorRepository>();
+builder.Services.AddScoped<IProfessorService, ProfessorService>();
+
+
 
 var connectionString = builder.Configuration.GetConnectionString("DB");
 
